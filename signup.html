@@ -360,6 +360,21 @@
       font-size: 14px; color: var(--muted); line-height: 1.6;
     }
 
+    /* Beehiiv iframe zone — white section, visually framed */
+    .card-form-zone {
+      background: #fff;
+      margin: 20px 20px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #E2E8F0;
+    }
+    .card-form-zone iframe {
+      display: block;
+      width: 100%;
+      height: 380px;
+      border: none;
+    }
+
     /* Card footer */
     .card-foot {
       padding: 14px 28px 20px;
@@ -496,42 +511,15 @@
           </div>
         </div>
 
-        <div class="card-body">
-
-          <form id="signup-form" novalidate>
-            <div class="field-group">
-
-              <div>
-                <label class="field-label" for="fname">First name <span style="color:var(--border-2)">(optional)</span></label>
-                <div class="field-wrap">
-                  <input class="field" type="text" id="fname" name="first_name" placeholder="Alex" autocomplete="given-name">
-                  <div class="field-accent"></div>
-                </div>
-              </div>
-
-              <div>
-                <label class="field-label" for="email">Email address</label>
-                <div class="field-wrap">
-                  <input class="field" type="email" id="email" name="email" placeholder="alex@example.com" required autocomplete="email">
-                  <div class="field-accent"></div>
-                </div>
-              </div>
-
-            </div>
-
-            <button class="btn-submit" type="submit" id="submit-btn">
-              <div class="spinner"></div>
-              <span class="btn-text">Send me the free guide</span>
-              <span class="btn-arrow">→</span>
-            </button>
-          </form>
-
-          <div class="success-state" id="success">
-            <div class="success-icon">✓</div>
-            <div class="success-title">Check your inbox!</div>
-            <p class="success-sub">The guide is on its way.<br>Check your email in the next few minutes.</p>
-          </div>
-
+        <div class="card-form-zone">
+          <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+          <iframe
+            src="https://subscribe-forms.beehiiv.com/7b677e9c-5da0-4ab5-b061-25ce80540ebc"
+            class="beehiiv-embed"
+            data-test-id="beehiiv-embed"
+            frameborder="0"
+            scrolling="no"
+          ></iframe>
         </div>
 
         <div class="card-foot">
@@ -553,49 +541,6 @@
     <p class="footer-copy">© 2026 Zeltix Craft &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a></p>
   </footer>
 
-  <script>
-    const BEEHIIV_FORM_ID = '7b677e9c-5da0-4ab5-b061-25ce80540ebc';
-
-    const form    = document.getElementById('signup-form');
-    const btn     = document.getElementById('submit-btn');
-    const success = document.getElementById('success');
-
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      const email = document.getElementById('email').value.trim();
-      const fname = document.getElementById('fname').value.trim();
-
-      if (!email) {
-        document.getElementById('email').focus();
-        return;
-      }
-
-      // Loading state
-      btn.classList.add('loading');
-      btn.disabled = true;
-
-      try {
-        const body = new URLSearchParams({ email });
-        if (fname) body.append('first_name', fname);
-
-        // POST to Beehiiv subscribe endpoint — no-cors: request goes through,
-        // response is opaque (browser can't read it, but server processes it).
-        await fetch('https://app.beehiiv.com/subscribe/' + BEEHIIV_FORM_ID, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: body.toString()
-        });
-      } catch (_) {
-        // Silent — no-cors rarely throws; proceed to success regardless.
-      }
-
-      // Show success
-      form.style.display = 'none';
-      success.style.display = 'block';
-    });
-  </script>
 
 </body>
 </html>
