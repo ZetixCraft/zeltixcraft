@@ -214,32 +214,8 @@
 
     <div class="divider"></div>
 
-    <!-- ════════════════════════════════════════════
-         BEEHIIV EMBED START
-         Replace the <form> block below with your
-         Beehiiv embed snippet once you have the URL.
-         ════════════════════════════════════════════ -->
-    <div id="form-wrapper">
-      <form class="form-group" id="signup-form" novalidate>
-        <input
-          class="field"
-          type="email"
-          id="email-input"
-          placeholder="Your email address"
-          required
-          autocomplete="email"
-        >
-        <button class="btn" type="submit">Send me the free guide →</button>
-      </form>
-      <div class="success" id="success-msg">
-        <div class="success-icon">✓</div>
-        <h2>Check your inbox!</h2>
-        <p>The guide is on its way. Check your email (and spam folder) in the next few minutes.</p>
-      </div>
-    </div>
-    <!-- ════════════════════════════════════════════
-         BEEHIIV EMBED END
-         ════════════════════════════════════════════ -->
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+    <iframe src="https://subscribe-forms.beehiiv.com/7b677e9c-5da0-4ab5-b061-25ce80540ebc" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 100%; height: 405px; margin: 0; border-radius: 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
 
     <p class="micro">Instant delivery · No spam · Unsubscribe anytime</p>
   </div>
@@ -248,35 +224,6 @@
     <a href="https://zeltix3.gumroad.com/l/gatgef" target="_blank">Ready for the full pack? AI Workflow Templates — $19 →</a><br><br>
     <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; © 2026 Zeltix Craft
   </footer>
-
-  <script>
-    // ── CONFIGURATION ──────────────────────────────────────────
-    // After creating your Beehiiv form:
-    //   1. Go to Beehiiv → Grow → Forms → your form → Share
-    //   2. Copy the Subscribe URL (looks like:
-    //      https://embeds.beehiiv.com/...  OR
-    //      https://zeltixcraft.beehiiv.com/subscribe)
-    //   3. Paste it below as BEEHIIV_URL
-    // ─────────────────────────────────────────────────────────
-    var BEEHIIV_URL = ''; // <-- paste Beehiiv subscribe URL here
-
-    document.getElementById('signup-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var email = document.getElementById('email-input').value.trim();
-      if (!email) return;
-
-      if (BEEHIIV_URL) {
-        // Redirect to Beehiiv with email pre-filled
-        window.location.href = BEEHIIV_URL + '?email=' + encodeURIComponent(email);
-      } else {
-        // Fallback: show success state (swap with your backend/Mailchimp/etc.)
-        document.getElementById('signup-form').style.display = 'none';
-        document.getElementById('success-msg').style.display = 'block';
-        // Optional: send to a simple endpoint
-        // fetch('/subscribe', { method: 'POST', body: JSON.stringify({ email }) });
-      }
-    });
-  </script>
 
 </body>
 </html>
