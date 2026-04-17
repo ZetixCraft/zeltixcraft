@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free AI Freelancer Guide — Zeltix Craft</title>
   <meta name="description" content="Get the free AI Freelancer's Notion Starter Kit — 24 pages, 5 tested prompts, instant download.">
+  <meta property="og:title" content="Free AI Freelancer Guide — Zeltix Craft">
+  <meta property="og:description" content="Build your first AI workflow in Notion in 30 minutes. Free 24-page guide.">
+  <meta property="og:image" content="https://zetixcraft.github.io/zeltixcraft/cover.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -26,33 +29,39 @@
       background: var(--navy);
       color: #fff;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
       -webkit-font-smoothing: antialiased;
     }
 
+    /* ── Nav ── */
+    nav {
+      border-bottom: 1px solid var(--navy-800);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .logo {
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--gray-400);
-      margin-bottom: 48px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: #fff;
+      text-decoration: none;
     }
     .logo span { color: var(--purple-l); }
 
-    .card {
-      width: 100%;
-      max-width: 440px;
-      background: var(--navy-800);
-      border: 1px solid var(--navy-700);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    /* ── Main grid ── */
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 72px;
+      align-items: start;
     }
 
+    /* ── Left column ── */
     .eyebrow {
       display: inline-block;
       font-size: 11px;
@@ -61,168 +70,270 @@
       text-transform: uppercase;
       color: var(--purple-l);
       background: rgba(124,58,237,0.15);
-      padding: 4px 12px;
+      padding: 5px 14px;
       border-radius: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     h1 {
-      font-size: 26px;
+      font-size: 40px;
       font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 10px;
+      line-height: 1.15;
+      margin-bottom: 16px;
     }
     h1 span { color: var(--purple-l); }
 
     .sub {
-      font-size: 15px;
+      font-size: 17px;
       color: var(--gray-400);
-      line-height: 1.6;
-      margin-bottom: 28px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 420px;
+    }
+
+    .cover {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 12px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+      margin-bottom: 36px;
+      display: block;
     }
 
     .bullets {
       list-style: none;
-      margin-bottom: 28px;
+      margin-bottom: 36px;
     }
     .bullets li {
-      font-size: 13px;
-      color: var(--gray-400);
       display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-    .bullets li::before {
-      content: '✓';
-      color: var(--purple-l);
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .divider {
-      height: 1px;
-      background: var(--navy-700);
-      margin-bottom: 28px;
-    }
-
-    /* ── BEEHIIV EMBED GOES HERE ──
-       Steps:
-       1. Go to beehiiv.com → Grow → Forms → New Form
-       2. Name it "Ebook Leadmagnet"
-       3. Click Embed → copy the <iframe> or <script> snippet
-       4. Replace everything between the EMBED markers below
-    ── */
-
-    /* Fallback form — active until Beehiiv is wired up */
-    .form-group {
-      display: flex;
-      flex-direction: column;
+      align-items: flex-start;
       gap: 12px;
-    }
-
-    .field {
-      width: 100%;
-      background: var(--navy);
-      border: 1px solid var(--navy-700);
-      border-radius: 10px;
-      padding: 14px 16px;
-      font-family: 'Inter', sans-serif;
       font-size: 15px;
-      color: #fff;
-      outline: none;
-      transition: border-color 0.15s;
+      color: var(--gray-400);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--navy-800);
+      line-height: 1.5;
     }
-    .field:focus { border-color: var(--purple); }
-    .field::placeholder { color: var(--gray-400); }
-
-    .btn {
-      width: 100%;
-      background: var(--purple);
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 15px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
-      letter-spacing: 0.01em;
-    }
-    .btn:hover { background: var(--purple-d); }
-    .btn:active { transform: scale(0.98); }
-
-    /* Success state */
-    .success {
-      display: none;
-      text-align: center;
-      padding: 12px 0;
-    }
-    .success-icon {
-      width: 52px;
-      height: 52px;
-      background: rgba(34,197,94,0.15);
-      border-radius: 50%;
+    .bullets li:last-child { border-bottom: none; }
+    .check {
+      width: 20px;
+      height: 20px;
+      background: rgba(124,58,237,0.2);
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
-      margin: 0 auto 14px;
-    }
-    .success h2 {
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-    .success p {
-      font-size: 14px;
-      color: var(--gray-400);
-      line-height: 1.6;
+      font-size: 11px;
+      color: var(--purple-l);
+      flex-shrink: 0;
+      margin-top: 1px;
     }
 
+    .social-proof {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--gray-400);
+    }
+    .dot {
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Right column: form card ── */
+    .form-card {
+      background: var(--navy-800);
+      border: 1px solid var(--navy-700);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+      position: sticky;
+      top: 24px;
+    }
+
+    .form-card-header {
+      padding: 28px 28px 0;
+    }
+    .form-card-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .form-card-sub {
+      font-size: 13px;
+      color: var(--gray-400);
+      margin-bottom: 20px;
+    }
+    .badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--purple-l);
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.25);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .form-divider {
+      height: 1px;
+      background: var(--navy-700);
+    }
+
+    /* Beehiiv iframe wrapper */
+    .beehiiv-wrap {
+      padding: 0;
+    }
+    .beehiiv-wrap iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+
+    .form-card-footer {
+      padding: 0 28px 24px;
+      text-align: center;
+    }
     .micro {
       font-size: 12px;
       color: var(--gray-400);
-      text-align: center;
-      margin-top: 12px;
     }
+    .micro a { color: var(--purple-l); text-decoration: none; }
 
+    /* ── Footer ── */
     footer {
-      margin-top: 40px;
+      border-top: 1px solid var(--navy-800);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .footer-upsell {
+      font-size: 13px;
+      color: var(--gray-400);
+      margin-bottom: 10px;
+    }
+    .footer-upsell a {
+      color: var(--purple-l);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-copy {
       font-size: 12px;
       color: var(--navy-700);
-      text-align: center;
     }
-    footer a { color: var(--gray-400); text-decoration: none; }
+    .footer-copy a { color: var(--gray-400); text-decoration: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 820px) {
+      .page {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 20px 60px;
+      }
+      .cover { max-width: 100%; }
+      h1 { font-size: 30px; }
+      .form-card { position: static; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="logo">Zeltix <span>Craft</span></div>
+  <nav>
+    <a href="index.html" class="logo">Zeltix <span>Craft</span></a>
+  </nav>
 
-  <div class="card">
-    <span class="eyebrow">Free Download</span>
-    <h1>Build Your First <span>AI Workflow</span> in Notion</h1>
-    <p class="sub">Get the 24-page guide — free. Set up your AI workflow in under an hour.</p>
+  <main class="page">
 
-    <ul class="bullets">
-      <li>The exact Notion structure for AI-assisted freelance work</li>
-      <li>5 tested prompts (GPT-4, Claude, Gemini)</li>
-      <li>Your first repeatable AI workflow — ready in 30 min</li>
-    </ul>
+    <!-- Left: content -->
+    <div>
+      <span class="eyebrow">Free Download</span>
+      <h1>Build Your First <span>AI Workflow</span> in Notion</h1>
+      <p class="sub">
+        The exact structure, prompts, and workflow used by AI-assisted freelancers —
+        packaged in a free 24-page guide. Set up in under an hour.
+      </p>
 
-    <div class="divider"></div>
+      <img
+        class="cover"
+        src="cover.png"
+        alt="The AI Freelancer's Notion Starter Kit — Free Guide"
+      >
 
-    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-    <iframe src="https://subscribe-forms.beehiiv.com/7b677e9c-5da0-4ab5-b061-25ce80540ebc" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 100%; height: 405px; margin: 0; border-radius: 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+      <ul class="bullets">
+        <li>
+          <span class="check">✓</span>
+          <span>The exact Notion structure for AI-assisted freelance work — 3 databases, every field pre-defined</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span>5 tested prompts that work with GPT-4, Claude, and Gemini</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span>Your first repeatable AI workflow — the 30-Minute Content Workflow</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span>A roadmap for what to build next based on your biggest friction point</span>
+        </li>
+      </ul>
 
-    <p class="micro">Instant delivery · No spam · Unsubscribe anytime</p>
-  </div>
+      <div class="social-proof">
+        <span class="dot"></span>
+        Free · No credit card · Sent instantly to your inbox
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-card-title">The AI Freelancer's Notion Starter Kit</div>
+        <div class="form-card-sub">24 pages · Instant download · 100% free</div>
+        <div class="badges">
+          <span class="badge">24 pages</span>
+          <span class="badge">5 prompts</span>
+          <span class="badge">30 min setup</span>
+          <span class="badge">Free</span>
+        </div>
+      </div>
+      <div class="form-divider"></div>
+
+      <div class="beehiiv-wrap">
+        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+        <iframe
+          src="https://subscribe-forms.beehiiv.com/7b677e9c-5da0-4ab5-b061-25ce80540ebc"
+          class="beehiiv-embed"
+          data-test-id="beehiiv-embed"
+          frameborder="0"
+          scrolling="no"
+          style="width:100%; height:380px; background-color:transparent; box-shadow:none;"
+        ></iframe>
+      </div>
+
+      <div class="form-divider"></div>
+      <div class="form-card-footer" style="padding-top:16px;">
+        <p class="micro">
+          No spam. Unsubscribe anytime. &nbsp;·&nbsp;
+          <a href="privacy.html">Privacy Policy</a>
+        </p>
+      </div>
+    </div>
+
+  </main>
 
   <footer>
-    <a href="https://zeltix3.gumroad.com/l/gatgef" target="_blank">Ready for the full pack? AI Workflow Templates — $19 →</a><br><br>
-    <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; © 2026 Zeltix Craft
+    <div class="footer-upsell">
+      Ready for the full system? <a href="https://zeltix3.gumroad.com/l/gatgef" target="_blank">AI Workflow Templates Pack — $19 one-time →</a>
+    </div>
+    <div class="footer-copy">
+      © 2026 Zeltix Craft &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a>
+    </div>
   </footer>
 
 </body>

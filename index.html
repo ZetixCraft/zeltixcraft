@@ -88,9 +88,9 @@
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 420px;
+      grid-template-columns: 1fr 480px;
       gap: 64px;
-      align-items: center;
+      align-items: start;
     }
     .eyebrow {
       display: inline-block;
@@ -138,70 +138,55 @@
     .capture-card {
       background: var(--navy-800);
       border: 1px solid var(--navy-700);
-      border-radius: 16px;
-      padding: 32px;
+      border-radius: 20px;
+      overflow: hidden;
       box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+      position: sticky;
+      top: 24px;
     }
-    .capture-card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      display: block;
+    .capture-card-header {
+      padding: 28px 28px 0;
     }
     .card-title {
-      font-size: 17px;
-      font-weight: 700;
+      font-size: 18px;
+      font-weight: 800;
       color: var(--white);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .card-sub {
       font-size: 13px;
       color: var(--gray-400);
+      margin-bottom: 16px;
+    }
+    .card-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
       margin-bottom: 20px;
     }
-    .form-field {
-      width: 100%;
-      background: var(--navy);
-      border: 1px solid var(--navy-700);
-      border-radius: 8px;
-      padding: 14px 16px;
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      margin-bottom: 12px;
-      outline: none;
-      transition: border-color 0.15s;
-    }
-    .form-field:focus { border-color: var(--purple); }
-    .form-field::placeholder { color: var(--gray-400); }
-    .btn-primary {
-      width: 100%;
-      background: var(--purple);
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
+    .card-badge {
+      font-size: 11px;
       font-weight: 600;
-      padding: 15px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.15s;
-      display: block;
-      text-align: center;
-      text-decoration: none;
+      color: var(--purple-l);
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.25);
+      padding: 4px 10px;
+      border-radius: 20px;
     }
-    .btn-primary:hover { background: var(--purple-d); }
+    .card-divider {
+      height: 1px;
+      background: var(--navy-700);
+    }
+    .capture-card-footer {
+      padding: 14px 28px 22px;
+      text-align: center;
+    }
     .form-micro {
       font-size: 12px;
       color: var(--gray-400);
-      text-align: center;
-      margin-top: 10px;
     }
-
-    /* ── Beehiiv embed placeholder ── */
-    /* TODO: Replace the form below with your Beehiiv embed code.
-       Go to Beehiiv → Grow → Forms → your form → Embed → copy the HTML.
-       Paste it inside .capture-card, replacing <form> through </form>. */
+    .form-micro a { color: var(--purple-l); text-decoration: none; }
+    .card-divider { height: 1px; background: var(--navy-700); }
 
     /* ── Benefits Strip ── */
     .benefits {
@@ -431,6 +416,7 @@
         grid-template-columns: 1fr;
         gap: 40px;
       }
+      .capture-card { position: static; }
 
       .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
 
@@ -487,14 +473,32 @@
         <!-- Right: Capture Card -->
         <div id="capture">
           <div class="capture-card">
-            <img src="cover.png" alt="The AI Freelancer's Notion Starter Kit">
-            <div class="card-title">The AI Freelancer's Notion Starter Kit</div>
-            <div class="card-sub">24 pages · Instant download · 100% free</div>
+            <div class="capture-card-header">
+              <div class="card-title">The AI Freelancer's Notion Starter Kit</div>
+              <div class="card-sub">Free 24-page guide — sent instantly to your inbox</div>
+              <div class="card-badges">
+                <span class="card-badge">24 pages</span>
+                <span class="card-badge">5 prompts</span>
+                <span class="card-badge">30 min setup</span>
+                <span class="card-badge">Free</span>
+              </div>
+            </div>
+            <div class="card-divider"></div>
 
             <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-            <iframe src="https://subscribe-forms.beehiiv.com/7b677e9c-5da0-4ab5-b061-25ce80540ebc" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 100%; height: 405px; margin: 0; border-radius: 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+            <iframe
+              src="https://subscribe-forms.beehiiv.com/7b677e9c-5da0-4ab5-b061-25ce80540ebc"
+              class="beehiiv-embed"
+              data-test-id="beehiiv-embed"
+              frameborder="0"
+              scrolling="no"
+              style="width:100%; height:380px; background-color:transparent; box-shadow:none; display:block;"
+            ></iframe>
 
-            <p class="form-micro">Sent instantly to your inbox. No spam — unsubscribe anytime.</p>
+            <div class="card-divider"></div>
+            <div class="capture-card-footer">
+              <p class="form-micro">No spam · Unsubscribe anytime · <a href="privacy.html">Privacy Policy</a></p>
+            </div>
           </div>
         </div>
 
@@ -593,13 +597,22 @@
       <div class="bottom-cta-inner">
         <h2>Ready to build your AI workflow?</h2>
         <p>Download the free guide. Set up in 30 minutes. Start saving hours this week.</p>
-        <div class="bottom-card">
-          <div class="card-title" style="margin-bottom:4px">The AI Freelancer's Notion Starter Kit</div>
-          <div class="card-sub">24 pages · Instant download · 100% free</div>
-
-          <iframe src="https://subscribe-forms.beehiiv.com/7b677e9c-5da0-4ab5-b061-25ce80540ebc" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 100%; height: 405px; margin: 0; border-radius: 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
-
-          <p class="form-micro">Sent instantly to your inbox. No spam — unsubscribe anytime.</p>
+        <div class="bottom-card" style="padding:0; overflow:hidden;">
+          <div style="padding:24px 28px 0;">
+            <div class="card-title">The AI Freelancer's Notion Starter Kit</div>
+            <div class="card-sub">Free 24-page guide — sent instantly to your inbox</div>
+          </div>
+          <div class="card-divider"></div>
+          <iframe
+            src="https://subscribe-forms.beehiiv.com/7b677e9c-5da0-4ab5-b061-25ce80540ebc"
+            class="beehiiv-embed"
+            data-test-id="beehiiv-embed"
+            frameborder="0"
+            scrolling="no"
+            style="width:100%; height:380px; background-color:transparent; box-shadow:none; display:block;"
+          ></iframe>
+          <div class="card-divider"></div>
+          <p class="form-micro" style="padding:14px 28px 20px; text-align:center;">No spam · Unsubscribe anytime · <a href="privacy.html" style="color:var(--purple-l); text-decoration:none;">Privacy Policy</a></p>
         </div>
       </div>
     </div>
