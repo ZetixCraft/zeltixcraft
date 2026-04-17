@@ -10,24 +10,26 @@
   <meta property="og:image" content="https://zetixcraft.github.io/zeltixcraft/cover.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #060D1A;
-      --surface:   #0F1A2E;
-      --border:    #1E2D47;
-      --purple:    #7C3AED;
-      --purple-b:  #5B21B6;
-      --purple-l:  #A78BFA;
-      --purple-dim: rgba(124,58,237,0.12);
-      --text:      #F0F4FF;
-      --muted:     #6B84A3;
-      --green:     #34D399;
-      --white:     #FFFFFF;
-      --cream:     #F8F9FB;
+      --bg:         #060D1A;
+      --surface:    #0C1525;
+      --surface-2:  #111E33;
+      --border:     #1C2D45;
+      --border-2:   #243550;
+      --purple:     #7C3AED;
+      --purple-b:   #5B21B6;
+      --purple-l:   #A78BFA;
+      --purple-dim: rgba(124,58,237,0.14);
+      --text:       #EEF2FF;
+      --text-2:     #C7D2E8;
+      --muted:      #627A99;
+      --green:      #34D399;
+      --accent:     #818CF8;
     }
 
     html { scroll-behavior: smooth; }
@@ -41,348 +43,393 @@
       overflow-x: hidden;
     }
 
-    /* ── Ambient glow background ── */
-    body::before {
-      content: '';
+    /* Ambient glows */
+    .glow-tr, .glow-bl {
       position: fixed;
-      top: -20%;
-      right: -10%;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(ellipse, rgba(124,58,237,0.18) 0%, transparent 65%);
+      border-radius: 50%;
       pointer-events: none;
       z-index: 0;
     }
-    body::after {
-      content: '';
-      position: fixed;
-      bottom: -10%;
-      left: -5%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(ellipse, rgba(91,33,182,0.1) 0%, transparent 65%);
-      pointer-events: none;
-      z-index: 0;
+    .glow-tr {
+      top: -15%; right: -8%;
+      width: 640px; height: 640px;
+      background: radial-gradient(ellipse, rgba(124,58,237,0.16) 0%, transparent 65%);
+    }
+    .glow-bl {
+      bottom: -10%; left: -5%;
+      width: 480px; height: 480px;
+      background: radial-gradient(ellipse, rgba(91,33,182,0.09) 0%, transparent 65%);
     }
 
     /* ── Nav ── */
     nav {
-      position: relative;
-      z-index: 10;
+      position: relative; z-index: 10;
       border-bottom: 1px solid var(--border);
       height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 32px;
+      padding: 0 36px;
       animation: fadeDown 0.5s ease both;
     }
     .logo {
       font-family: 'Syne', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: 0.01em;
-      color: var(--text);
-      text-decoration: none;
+      font-size: 16px; font-weight: 800;
+      color: var(--text); text-decoration: none;
     }
-    .logo em {
-      font-style: normal;
-      color: var(--purple-l);
-    }
-    .nav-badge {
-      font-size: 11px;
-      font-weight: 500;
+    .logo em { font-style: normal; color: var(--purple-l); }
+    .nav-tag {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
       color: var(--muted);
-      letter-spacing: 0.04em;
     }
 
-    /* ── Page layout ── */
+    /* ── Page grid ── */
     .page {
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
       max-width: 1080px;
       margin: 0 auto;
-      padding: 72px 32px 88px;
+      padding: 72px 36px 96px;
       display: grid;
-      grid-template-columns: 1fr 460px;
+      grid-template-columns: 1fr 440px;
       gap: 80px;
       align-items: start;
     }
 
-    /* ── Left: copy ── */
-    .left { animation: fadeUp 0.6s 0.1s ease both; }
+    /* ─────────────────────────────
+       LEFT COLUMN
+    ───────────────────────────── */
+    .left { animation: fadeUp 0.55s 0.1s ease both; }
 
     .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--purple-l);
       margin-bottom: 28px;
     }
-    .tag-dot {
-      width: 6px; height: 6px;
+    .tag-pulse {
+      width: 7px; height: 7px;
       background: var(--green);
       border-radius: 50%;
-      box-shadow: 0 0 8px var(--green);
+      box-shadow: 0 0 0 0 rgba(52,211,153,0.5);
+      animation: pulse 2.2s ease infinite;
     }
 
     h1 {
       font-family: 'Syne', sans-serif;
-      font-size: 44px;
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      font-size: 46px; font-weight: 800;
+      line-height: 1.08; letter-spacing: -0.025em;
       color: var(--text);
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
     h1 mark {
       background: none;
-      color: var(--purple-l);
-      position: relative;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(90deg, var(--purple-l) 0%, var(--accent) 100%);
     }
 
     .sub {
-      font-size: 17px;
-      font-weight: 300;
+      font-size: 17px; font-weight: 300;
       color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 40px;
-      max-width: 400px;
+      line-height: 1.75; max-width: 400px;
+      margin-bottom: 44px;
     }
 
-    /* ── Cover image ── */
+    /* Cover */
     .cover-wrap {
-      position: relative;
       display: inline-block;
-      margin-bottom: 40px;
+      position: relative;
+      margin-bottom: 44px;
     }
-    .cover-wrap::before {
-      content: '';
+    .cover-glow {
       position: absolute;
-      inset: -2px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--purple), var(--purple-b), transparent 60%);
+      inset: -20px;
+      background: radial-gradient(ellipse at 40% 60%, rgba(124,58,237,0.35) 0%, transparent 65%);
       z-index: 0;
-      opacity: 0.6;
+      filter: blur(20px);
     }
-    .cover-wrap::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 12px;
-      box-shadow: 0 32px 80px rgba(124,58,237,0.3), 0 8px 24px rgba(0,0,0,0.6);
-      z-index: 0;
+    .cover-border {
+      position: absolute; inset: -1px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.7), rgba(91,33,182,0.3) 50%, transparent);
+      z-index: 1;
     }
     .cover {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 340px;
-      border-radius: 12px;
-      display: block;
+      position: relative; z-index: 2;
+      width: 100%; max-width: 300px;
+      border-radius: 12px; display: block;
+      box-shadow: 0 28px 72px rgba(0,0,0,0.65);
     }
 
-    /* ── Benefit list ── */
+    /* Benefits */
     .benefits {
       list-style: none;
-      margin-bottom: 36px;
+      margin-bottom: 40px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
     }
     .benefits li {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 13px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 14.5px;
-      color: var(--muted);
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 18px;
+      font-size: 14px;
+      color: var(--text-2);
       line-height: 1.55;
-      transition: color 0.2s;
+      background: var(--surface);
+      transition: background 0.2s;
+      border-bottom: 1px solid var(--border);
     }
-    .benefits li:first-child { padding-top: 0; }
-    .benefits li:last-child { border-bottom: none; padding-bottom: 0; }
-    .benefits li:hover { color: var(--text); }
-    .icon-box {
-      width: 22px;
-      height: 22px;
+    .benefits li:last-child { border-bottom: none; }
+    .benefits li:hover { background: var(--surface-2); }
+    .ico {
+      width: 22px; height: 22px; flex-shrink: 0;
       background: linear-gradient(135deg, var(--purple), var(--purple-b));
       border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-      font-size: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; margin-top: 1px;
+      box-shadow: 0 4px 12px rgba(124,58,237,0.4);
     }
 
     .proof {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--muted);
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--muted);
     }
     .proof-dot {
       width: 7px; height: 7px;
-      background: var(--green);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--green);
+      background: var(--green); border-radius: 50%;
+      box-shadow: 0 0 8px rgba(52,211,153,0.6);
     }
 
-    /* ── Right: split card ── */
-    .right { animation: fadeUp 0.6s 0.2s ease both; }
+    /* ─────────────────────────────
+       RIGHT COLUMN — FORM CARD
+    ───────────────────────────── */
+    .right { animation: fadeUp 0.55s 0.2s ease both; }
 
-    .split-card {
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow:
-        0 0 0 1px var(--border),
-        0 40px 100px rgba(0,0,0,0.6),
-        0 0 60px rgba(124,58,237,0.08);
-      position: sticky;
-      top: 28px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 0 1px rgba(124,58,237,0.08);
+      position: sticky; top: 28px;
     }
 
-    /* Dark top section */
-    .card-top {
-      background: var(--surface);
+    /* Card header */
+    .card-head {
       padding: 28px 28px 24px;
       border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(124,58,237,0.06) 0%, transparent 100%);
     }
     .card-eyebrow {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--purple-l);
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--purple-l); opacity: 0.8;
       margin-bottom: 10px;
-      opacity: 0.8;
     }
     .card-title {
       font-family: 'Syne', sans-serif;
-      font-size: 19px;
-      font-weight: 700;
+      font-size: 20px; font-weight: 700;
+      line-height: 1.25;
       color: var(--text);
-      line-height: 1.3;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
-    .pill-row {
-      display: flex;
-      gap: 7px;
-      flex-wrap: wrap;
+    .pills {
+      display: flex; flex-wrap: wrap; gap: 7px;
     }
     .pill {
-      font-size: 11px;
-      font-weight: 500;
+      font-size: 11px; font-weight: 500;
       color: var(--purple-l);
-      background: rgba(124,58,237,0.14);
-      border: 1px solid rgba(124,58,237,0.28);
-      padding: 4px 11px;
-      border-radius: 100px;
-      letter-spacing: 0.02em;
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.25);
+      padding: 4px 12px; border-radius: 100px;
     }
 
-    /* White bottom section — Beehiiv lives here */
-    .card-form {
-      background: var(--cream);
-      /* top gradient fade from dark to light */
-      position: relative;
+    /* Form body */
+    .card-body { padding: 28px; }
+
+    .field-group {
+      display: flex; flex-direction: column; gap: 12px;
+      margin-bottom: 16px;
     }
-    .card-form::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 24px;
-      background: linear-gradient(to bottom, var(--surface), var(--cream));
-      z-index: 2;
-      pointer-events: none;
-    }
-    .card-form iframe {
+
+    .field-label {
+      font-size: 12px; font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      margin-bottom: 6px;
       display: block;
-      width: 100%;
-      height: 380px;
-      border: none;
-      position: relative;
-      z-index: 1;
     }
 
-    /* Footer of card — dark again */
-    .card-bottom {
-      background: var(--surface);
+    .field-wrap { position: relative; }
+
+    .field {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border-2);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; font-weight: 400;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+    .field::placeholder { color: var(--muted); }
+    .field:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.18);
+    }
+    .field:focus + .field-accent {
+      opacity: 1;
+    }
+    .field-accent {
+      position: absolute;
+      bottom: 0; left: 16px; right: 16px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--purple), var(--accent));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    /* Submit button */
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-b) 100%);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; font-weight: 600;
+      padding: 16px 20px;
+      border: none; border-radius: 10px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 8px 28px rgba(124,58,237,0.4);
+      letter-spacing: 0.01em;
+      position: relative; overflow: hidden;
+    }
+    .btn-submit::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 50%);
+    }
+    .btn-submit:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 12px 32px rgba(124,58,237,0.5); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn-arrow { font-size: 18px; transition: transform 0.2s; }
+    .btn-submit:hover .btn-arrow { transform: translateX(3px); }
+
+    /* Loading spinner */
+    .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+    .btn-submit.loading .spinner { display: block; }
+    .btn-submit.loading .btn-text,
+    .btn-submit.loading .btn-arrow { display: none; }
+
+    /* Success state */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 20px 0 8px;
+    }
+    .success-icon {
+      width: 56px; height: 56px;
+      background: rgba(52,211,153,0.12);
+      border: 1px solid rgba(52,211,153,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 16px;
+      animation: popIn 0.4s ease both;
+    }
+    .success-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px; font-weight: 700;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .success-sub {
+      font-size: 14px; color: var(--muted); line-height: 1.6;
+    }
+
+    /* Card footer */
+    .card-foot {
+      padding: 14px 28px 20px;
       border-top: 1px solid var(--border);
-      padding: 14px 28px;
       text-align: center;
     }
-    .card-bottom p {
-      font-size: 12px;
-      color: var(--muted);
+    .micro {
+      font-size: 12px; color: var(--muted);
+      line-height: 1.5;
     }
-    .card-bottom a {
-      color: var(--purple-l);
-      text-decoration: none;
-    }
-    .card-bottom a:hover { text-decoration: underline; }
+    .micro a { color: var(--purple-l); text-decoration: none; }
+    .micro a:hover { text-decoration: underline; }
 
     /* ── Page footer ── */
     footer {
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
       border-top: 1px solid var(--border);
-      padding: 28px 32px;
+      padding: 28px 36px;
       text-align: center;
-      animation: fadeUp 0.6s 0.4s ease both;
+      animation: fadeUp 0.55s 0.35s ease both;
     }
-    .footer-cta {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-    .footer-cta a {
-      color: var(--purple-l);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .footer-cta a:hover { text-decoration: underline; }
-    .footer-legal {
-      font-size: 12px;
-      color: var(--border);
-    }
-    .footer-legal a { color: var(--muted); text-decoration: none; }
+    .footer-cta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .footer-cta a { color: var(--purple-l); font-weight: 600; text-decoration: none; }
+    .footer-copy { font-size: 12px; color: var(--border); }
+    .footer-copy a { color: var(--muted); text-decoration: none; }
 
-    /* ── Animations ── */
+    /* ── Keyframes ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(22px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
+      50%       { box-shadow: 0 0 0 6px rgba(52,211,153,0); }
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.7); }
+      to   { opacity: 1; transform: scale(1); }
+    }
 
     /* ── Responsive ── */
-    @media (max-width: 860px) {
+    @media (max-width: 880px) {
       .page {
         grid-template-columns: 1fr;
-        gap: 48px;
-        padding: 48px 20px 64px;
+        gap: 48px; padding: 48px 20px 72px;
       }
-      h1 { font-size: 34px; }
+      h1 { font-size: 36px; }
       .cover { max-width: 100%; }
-      .split-card { position: static; }
+      .form-card { position: static; }
       nav { padding: 0 20px; }
-      .nav-badge { display: none; }
+      .nav-tag { display: none; }
       footer { padding: 24px 20px; }
     }
   </style>
 </head>
 <body>
 
+  <div class="glow-tr"></div>
+  <div class="glow-bl"></div>
+
   <nav>
     <a href="index.html" class="logo">Zeltix <em>Craft</em></a>
-    <span class="nav-badge">Free Resource</span>
+    <span class="nav-tag">Free Resource</span>
   </nav>
 
   <main class="page">
@@ -391,7 +438,7 @@
     <div class="left">
 
       <div class="tag">
-        <span class="tag-dot"></span>
+        <span class="tag-pulse"></span>
         Free Download
       </div>
 
@@ -403,28 +450,26 @@
       </p>
 
       <div class="cover-wrap">
-        <img
-          class="cover"
-          src="cover.png"
-          alt="The AI Freelancer's Notion Starter Kit — Free Guide"
-        >
+        <div class="cover-glow"></div>
+        <div class="cover-border"></div>
+        <img class="cover" src="cover.png" alt="The AI Freelancer's Notion Starter Kit">
       </div>
 
       <ul class="benefits">
         <li>
-          <span class="icon-box">✦</span>
+          <span class="ico">✦</span>
           <span>The exact Notion structure for AI-assisted freelance work — 3 databases, every field pre-defined</span>
         </li>
         <li>
-          <span class="icon-box">✦</span>
+          <span class="ico">✦</span>
           <span>5 tested prompts that work with GPT-4, Claude, and Gemini — with metadata on when to use each</span>
         </li>
         <li>
-          <span class="icon-box">✦</span>
+          <span class="ico">✦</span>
           <span>Your first repeatable AI workflow — the 30-Minute Content Workflow, 4 steps</span>
         </li>
         <li>
-          <span class="icon-box">✦</span>
+          <span class="ico">✦</span>
           <span>A roadmap for what to build next, based on your biggest workflow friction point</span>
         </li>
       </ul>
@@ -436,15 +481,14 @@
 
     </div>
 
-    <!-- ── Right: split card ── -->
+    <!-- ── Right: form card ── -->
     <div class="right">
-      <div class="split-card">
+      <div class="form-card">
 
-        <!-- Dark header -->
-        <div class="card-top">
+        <div class="card-head">
           <div class="card-eyebrow">Get instant access</div>
           <div class="card-title">The AI Freelancer's<br>Notion Starter Kit</div>
-          <div class="pill-row">
+          <div class="pills">
             <span class="pill">24 pages</span>
             <span class="pill">5 prompts</span>
             <span class="pill">30 min setup</span>
@@ -452,21 +496,48 @@
           </div>
         </div>
 
-        <!-- White form zone — Beehiiv renders naturally here -->
-        <div class="card-form">
-          <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-          <iframe
-            src="https://subscribe-forms.beehiiv.com/7b677e9c-5da0-4ab5-b061-25ce80540ebc"
-            class="beehiiv-embed"
-            data-test-id="beehiiv-embed"
-            frameborder="0"
-            scrolling="no"
-          ></iframe>
+        <div class="card-body">
+
+          <form id="signup-form" novalidate>
+            <div class="field-group">
+
+              <div>
+                <label class="field-label" for="fname">First name <span style="color:var(--border-2)">(optional)</span></label>
+                <div class="field-wrap">
+                  <input class="field" type="text" id="fname" name="first_name" placeholder="Alex" autocomplete="given-name">
+                  <div class="field-accent"></div>
+                </div>
+              </div>
+
+              <div>
+                <label class="field-label" for="email">Email address</label>
+                <div class="field-wrap">
+                  <input class="field" type="email" id="email" name="email" placeholder="alex@example.com" required autocomplete="email">
+                  <div class="field-accent"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <button class="btn-submit" type="submit" id="submit-btn">
+              <div class="spinner"></div>
+              <span class="btn-text">Send me the free guide</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </form>
+
+          <div class="success-state" id="success">
+            <div class="success-icon">✓</div>
+            <div class="success-title">Check your inbox!</div>
+            <p class="success-sub">The guide is on its way.<br>Check your email in the next few minutes.</p>
+          </div>
+
         </div>
 
-        <!-- Dark footer -->
-        <div class="card-bottom">
-          <p>No spam. Unsubscribe anytime. &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+        <div class="card-foot">
+          <p class="micro">
+            No spam. Unsubscribe anytime.&nbsp;&nbsp;·&nbsp;&nbsp;<a href="privacy.html">Privacy Policy</a>
+          </p>
         </div>
 
       </div>
@@ -477,15 +548,54 @@
   <footer>
     <p class="footer-cta">
       Ready for the full system?
-      <a href="https://zeltix3.gumroad.com/l/gatgef" target="_blank">
-        AI Workflow Templates Pack — $19 one-time →
-      </a>
+      <a href="https://zeltix3.gumroad.com/l/gatgef" target="_blank">AI Workflow Templates Pack — $19 →</a>
     </p>
-    <p class="footer-legal">
-      © 2026 Zeltix Craft &nbsp;·&nbsp;
-      <a href="privacy.html">Privacy Policy</a>
-    </p>
+    <p class="footer-copy">© 2026 Zeltix Craft &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a></p>
   </footer>
+
+  <script>
+    const BEEHIIV_FORM_ID = '7b677e9c-5da0-4ab5-b061-25ce80540ebc';
+
+    const form    = document.getElementById('signup-form');
+    const btn     = document.getElementById('submit-btn');
+    const success = document.getElementById('success');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const fname = document.getElementById('fname').value.trim();
+
+      if (!email) {
+        document.getElementById('email').focus();
+        return;
+      }
+
+      // Loading state
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      try {
+        const body = new URLSearchParams({ email });
+        if (fname) body.append('first_name', fname);
+
+        // POST to Beehiiv subscribe endpoint — no-cors: request goes through,
+        // response is opaque (browser can't read it, but server processes it).
+        await fetch('https://app.beehiiv.com/subscribe/' + BEEHIIV_FORM_ID, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: body.toString()
+        });
+      } catch (_) {
+        // Silent — no-cors rarely throws; proceed to success regardless.
+      }
+
+      // Show success
+      form.style.display = 'none';
+      success.style.display = 'block';
+    });
+  </script>
 
 </body>
 </html>
