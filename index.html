@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Freelancer Guide — The Notion Starter Kit | Zeltix Craft</title>
+  <meta name="description" content="Download free: The AI Freelancer's Notion Starter Kit. The exact Notion structure, 5 tested prompts, and your first repeatable AI workflow — set up in 30 minutes.">
+  <meta property="og:title" content="The AI Freelancer's Notion Starter Kit — Free Guide">
+  <meta property="og:description" content="Build your first AI workflow in Notion in 30 minutes. Free 24-page guide by Zeltix Craft.">
+  <meta property="og:image" content="https://zeltixcraft.com/cover.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:      #0F172A;
+      --navy-800:  #1E293B;
+      --navy-700:  #334155;
+      --purple:    #7C3AED;
+      --purple-d:  #6D28D9;
+      --purple-l:  #A78BFA;
+      --purple-bg: #F5F3FF;
+      --white:     #FFFFFF;
+      --gray-100:  #F8FAFC;
+      --gray-200:  #E2E8F0;
+      --gray-400:  #94A3B8;
+      --gray-700:  #334155;
+      --green:     #22C55E;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--navy);
+      border-bottom: 1px solid var(--navy-800);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--purple-l); }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--purple);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--purple-d); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 96px 0 80px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-l);
+      background: rgba(124,58,237,0.15);
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--white);
+      max-width: 540px;
+      margin-bottom: 20px;
+    }
+    h1 span { color: var(--purple-l); }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--gray-400);
+      max-width: 460px;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    .social-proof {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--gray-400);
+    }
+    .social-proof .dot {
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* ── Capture Card ── */
+    .capture-card {
+      background: var(--navy-800);
+      border: 1px solid var(--navy-700);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .capture-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .card-sub {
+      font-size: 13px;
+      color: var(--gray-400);
+      margin-bottom: 20px;
+    }
+    .form-field {
+      width: 100%;
+      background: var(--navy);
+      border: 1px solid var(--navy-700);
+      border-radius: 8px;
+      padding: 14px 16px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      margin-bottom: 12px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form-field:focus { border-color: var(--purple); }
+    .form-field::placeholder { color: var(--gray-400); }
+    .btn-primary {
+      width: 100%;
+      background: var(--purple);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 15px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: var(--purple-d); }
+    .form-micro {
+      font-size: 12px;
+      color: var(--gray-400);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* ── Beehiiv embed placeholder ── */
+    /* TODO: Replace the form below with your Beehiiv embed code.
+       Go to Beehiiv → Grow → Forms → your form → Embed → copy the HTML.
+       Paste it inside .capture-card, replacing <form> through </form>. */
+
+    /* ── Benefits Strip ── */
+    .benefits {
+      padding: 80px 0;
+      border-top: 1px solid var(--navy-800);
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-l);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 48px;
+      color: var(--white);
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .benefit-card {
+      text-align: center;
+      padding: 32px 24px;
+      background: var(--navy-800);
+      border-radius: 12px;
+      border: 1px solid var(--navy-700);
+    }
+    .benefit-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(124,58,237,0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin: 0 auto 16px;
+    }
+    .benefit-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .benefit-desc {
+      font-size: 14px;
+      color: var(--gray-400);
+      line-height: 1.6;
+    }
+
+    /* ── Mockup Preview ── */
+    .mockup {
+      padding: 80px 0;
+      border-top: 1px solid var(--navy-800);
+    }
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .mockup-img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--navy-700);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .mockup-content h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .check-list {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--gray-400);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .check-list li::before {
+      content: '✓';
+      color: var(--purple-l);
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .btn-secondary {
+      display: inline-block;
+      background: var(--purple);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-secondary:hover { background: var(--purple-d); }
+
+    /* ── Trust Strip ── */
+    .trust {
+      padding: 64px 0;
+      background: var(--navy-800);
+      border-top: 1px solid var(--navy-700);
+      border-bottom: 1px solid var(--navy-700);
+    }
+    .trust-grid {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      text-align: center;
+    }
+    .trust-number {
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--purple-l);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .trust-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .trust-sub {
+      font-size: 12px;
+      color: var(--gray-400);
+    }
+
+    /* ── Bottom CTA ── */
+    .bottom-cta {
+      padding: 96px 0;
+    }
+    .bottom-cta-inner {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .bottom-cta h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .bottom-cta p {
+      font-size: 16px;
+      color: var(--gray-400);
+      margin-bottom: 32px;
+    }
+    .bottom-card {
+      background: var(--navy-800);
+      border: 1px solid var(--navy-700);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #070D1A;
+      border-top: 1px solid var(--navy-800);
+      padding: 40px 0;
+      text-align: center;
+    }
+    .footer-brand {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--gray-400);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--purple-l); }
+    .footer-upsell {
+      font-size: 13px;
+      color: var(--gray-400);
+      margin-bottom: 12px;
+    }
+    .footer-upsell a {
+      color: var(--purple-l);
+      text-decoration: none;
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: var(--navy-700);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-cta { display: none; }
+
+      h1 { font-size: 32px; }
+      .hero { padding: 64px 0 48px; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
+
+      .mockup-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .mockup-grid .mockup-img { order: 2; }
+      .mockup-grid .mockup-content { order: 1; }
+      .mockup-content h2 { font-size: 26px; }
+
+      .trust-grid { gap: 40px; }
+
+      .bottom-cta h2 { font-size: 28px; }
+      .bottom-cta { padding: 64px 0; }
+
+      .container { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="https://zeltixcraft.com" class="nav-logo">Zeltix <span>Craft</span></a>
+        <a href="https://zeltix3.gumroad.com/l/gatgef" class="nav-cta" target="_blank">
+          Get the full pack — $19 →
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Left: Headline -->
+        <div>
+          <span class="eyebrow">Free Download</span>
+          <h1>Stop Starting From Scratch Every Time You Use <span>AI</span></h1>
+          <p class="hero-sub">
+            Get the free guide that shows you how to build your AI workflow
+            in Notion — in under an hour.
+          </p>
+          <div class="social-proof">
+            <span class="dot"></span>
+            Free · No credit card · Instant download
+          </div>
+        </div>
+
+        <!-- Right: Capture Card -->
+        <div id="capture">
+          <div class="capture-card">
+            <img src="../product_output/cover.png" alt="The AI Freelancer's Notion Starter Kit">
+            <!-- DEPLOY NOTE: change src to absolute URL when hosting, e.g. https://zeltixcraft.com/cover.png -->
+            <div class="card-title">The AI Freelancer's Notion Starter Kit</div>
+            <div class="card-sub">24 pages · Instant download · 100% free</div>
+
+            <!-- ============================================================
+                 SETUP (5 min):
+                 1. Create free account at beehiiv.com
+                 2. Grow → Forms → New Form → name it "Ebook Leadmagnet"
+                 3. Click Embed → copy the HTML snippet
+                 4. Replace EVERYTHING between the dashes below with that snippet
+                 ============================================================ -->
+
+            <!-- REPLACE FROM HERE -->
+            <form id="lp-form" onsubmit="handleSubmit(event)">
+              <input
+                class="form-field"
+                type="email"
+                id="lp-email"
+                placeholder="Enter your email address"
+                required
+              >
+              <button class="btn-primary" type="submit">
+                Send me the free guide →
+              </button>
+            </form>
+            <script>
+              function handleSubmit(e) {
+                e.preventDefault();
+                // Replace this URL with your Beehiiv subscribe URL:
+                // beehiiv.com → Grow → Forms → your form → Share Link
+                var url = 'https://YOUR-BEEHIIV-FORM-URL?email=' + encodeURIComponent(document.getElementById('lp-email').value);
+                window.location.href = url;
+              }
+            </script>
+            <!-- TO HERE -->
+
+            <p class="form-micro">Sent instantly to your inbox. No spam — unsubscribe anytime.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Benefits ── -->
+  <section class="benefits">
+    <div class="container">
+      <div class="section-label">What you'll get</div>
+      <h2 class="section-title">Everything you need to start — in one free guide</h2>
+      <div class="benefits-grid">
+
+        <div class="benefit-card">
+          <div class="benefit-icon">📐</div>
+          <div class="benefit-title">The exact Notion structure</div>
+          <div class="benefit-desc">3 databases built for AI-assisted freelance work. Copy-paste ready — no setup decisions required.</div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <div class="benefit-title">5 tested prompts</div>
+          <div class="benefit-desc">Work with ChatGPT, Claude, or Gemini. The Brief Builder, Email Drafter, Research Accelerator and more — use them in the next hour.</div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">🔄</div>
+          <div class="benefit-title">Your first repeatable workflow</div>
+          <div class="benefit-desc">The 30-Minute Content Workflow. 4 steps. Runs the same way every time. Set up in Notion in under 5 minutes.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Mockup Preview ── -->
+  <section class="mockup">
+    <div class="container">
+      <div class="mockup-grid">
+
+        <img
+          class="mockup-img"
+          src="../product_output/ebook/_img/workspace.png"
+          <!-- DEPLOY NOTE: change to absolute URL when hosting -->
+          alt="Notion workspace for AI workflow"
+        >
+
+        <div class="mockup-content">
+          <div class="section-label">Inside the guide</div>
+          <h2>A real system, not just tips</h2>
+          <ul class="check-list">
+            <li>The exact Notion structure for AI-assisted freelance work</li>
+            <li>3 databases with every field pre-defined — Content, Clients, Prompts</li>
+            <li>5 prompts with metadata: when to use them, time saved per use</li>
+            <li>Your first repeatable AI workflow — set up in 30 minutes</li>
+            <li>A roadmap for what to build next based on your biggest friction</li>
+          </ul>
+          <a href="#capture" class="btn-secondary">Download free →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Trust Strip ── -->
+  <section class="trust">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-number">24</div>
+          <div class="trust-label">Pages</div>
+          <div class="trust-sub">Practical, not theoretical</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-number">5</div>
+          <div class="trust-label">Tested prompts</div>
+          <div class="trust-sub">GPT-4 · Claude · Gemini</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-number">30</div>
+          <div class="trust-label">Minutes to set up</div>
+          <div class="trust-sub">Free Notion plan is enough</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-number">$0</div>
+          <div class="trust-label">Price</div>
+          <div class="trust-sub">No credit card · No catch</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Bottom CTA ── -->
+  <section class="bottom-cta" id="capture-bottom">
+    <div class="container">
+      <div class="bottom-cta-inner">
+        <h2>Ready to build your AI workflow?</h2>
+        <p>Download the free guide. Set up in 30 minutes. Start saving hours this week.</p>
+        <div class="bottom-card">
+          <div class="card-title" style="margin-bottom:4px">The AI Freelancer's Notion Starter Kit</div>
+          <div class="card-sub">24 pages · Instant download · 100% free</div>
+
+          <!-- Same form as hero — replace with same Beehiiv embed after setup -->
+          <form onsubmit="handleSubmit(event)">
+            <input
+              class="form-field"
+              type="email"
+              id="lp-email-bottom"
+              placeholder="Enter your email address"
+              required
+            >
+            <button class="btn-primary" type="submit">
+              Send me the free guide →
+            </button>
+          </form>
+          <script>
+            document.querySelector('#capture-bottom form').addEventListener('submit', function(e) {
+              e.preventDefault();
+              var url = 'https://YOUR-BEEHIIV-FORM-URL?email=' + encodeURIComponent(document.getElementById('lp-email-bottom').value);
+              window.location.href = url;
+            });
+          </script>
+
+          <p class="form-micro">Sent instantly to your inbox. No spam — unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">Zeltix Craft</div>
+      <div class="footer-links">
+        <a href="https://zeltixcraft.com">Website</a>
+        <a href="mailto:hello@zeltixcraft.com">Contact</a>
+        <a href="https://zeltix3.gumroad.com/l/gatgef" target="_blank">Product</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+      <div class="footer-upsell">
+        Ready for the complete system?
+        <a href="https://zeltix3.gumroad.com/l/gatgef" target="_blank">
+          AI Workflow Templates Pack — $19 one-time →
+        </a>
+      </div>
+      <div class="footer-copy">© 2026 Zeltix Craft. Unsubscribe anytime.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>

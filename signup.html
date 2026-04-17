@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Freelancer Guide — Zeltix Craft</title>
+  <meta name="description" content="Get the free AI Freelancer's Notion Starter Kit — 24 pages, 5 tested prompts, instant download.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:     #0F172A;
+      --navy-800: #1E293B;
+      --navy-700: #334155;
+      --purple:   #7C3AED;
+      --purple-d: #6D28D9;
+      --purple-l: #A78BFA;
+      --gray-400: #94A3B8;
+      --green:    #22C55E;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .logo {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--gray-400);
+      margin-bottom: 48px;
+    }
+    .logo span { color: var(--purple-l); }
+
+    .card {
+      width: 100%;
+      max-width: 440px;
+      background: var(--navy-800);
+      border: 1px solid var(--navy-700);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple-l);
+      background: rgba(124,58,237,0.15);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    h1 span { color: var(--purple-l); }
+
+    .sub {
+      font-size: 15px;
+      color: var(--gray-400);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .bullets {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+    .bullets li {
+      font-size: 13px;
+      color: var(--gray-400);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .bullets li::before {
+      content: '✓';
+      color: var(--purple-l);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--navy-700);
+      margin-bottom: 28px;
+    }
+
+    /* ── BEEHIIV EMBED GOES HERE ──
+       Steps:
+       1. Go to beehiiv.com → Grow → Forms → New Form
+       2. Name it "Ebook Leadmagnet"
+       3. Click Embed → copy the <iframe> or <script> snippet
+       4. Replace everything between the EMBED markers below
+    ── */
+
+    /* Fallback form — active until Beehiiv is wired up */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .field {
+      width: 100%;
+      background: var(--navy);
+      border: 1px solid var(--navy-700);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .field:focus { border-color: var(--purple); }
+    .field::placeholder { color: var(--gray-400); }
+
+    .btn {
+      width: 100%;
+      background: var(--purple);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      letter-spacing: 0.01em;
+    }
+    .btn:hover { background: var(--purple-d); }
+    .btn:active { transform: scale(0.98); }
+
+    /* Success state */
+    .success {
+      display: none;
+      text-align: center;
+      padding: 12px 0;
+    }
+    .success-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(34,197,94,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin: 0 auto 14px;
+    }
+    .success h2 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .success p {
+      font-size: 14px;
+      color: var(--gray-400);
+      line-height: 1.6;
+    }
+
+    .micro {
+      font-size: 12px;
+      color: var(--gray-400);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: var(--navy-700);
+      text-align: center;
+    }
+    footer a { color: var(--gray-400); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <div class="logo">Zeltix <span>Craft</span></div>
+
+  <div class="card">
+    <span class="eyebrow">Free Download</span>
+    <h1>Build Your First <span>AI Workflow</span> in Notion</h1>
+    <p class="sub">Get the 24-page guide — free. Set up your AI workflow in under an hour.</p>
+
+    <ul class="bullets">
+      <li>The exact Notion structure for AI-assisted freelance work</li>
+      <li>5 tested prompts (GPT-4, Claude, Gemini)</li>
+      <li>Your first repeatable AI workflow — ready in 30 min</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <!-- ════════════════════════════════════════════
+         BEEHIIV EMBED START
+         Replace the <form> block below with your
+         Beehiiv embed snippet once you have the URL.
+         ════════════════════════════════════════════ -->
+    <div id="form-wrapper">
+      <form class="form-group" id="signup-form" novalidate>
+        <input
+          class="field"
+          type="email"
+          id="email-input"
+          placeholder="Your email address"
+          required
+          autocomplete="email"
+        >
+        <button class="btn" type="submit">Send me the free guide →</button>
+      </form>
+      <div class="success" id="success-msg">
+        <div class="success-icon">✓</div>
+        <h2>Check your inbox!</h2>
+        <p>The guide is on its way. Check your email (and spam folder) in the next few minutes.</p>
+      </div>
+    </div>
+    <!-- ════════════════════════════════════════════
+         BEEHIIV EMBED END
+         ════════════════════════════════════════════ -->
+
+    <p class="micro">Instant delivery · No spam · Unsubscribe anytime</p>
+  </div>
+
+  <footer>
+    <a href="https://zeltix3.gumroad.com/l/gatgef" target="_blank">Ready for the full pack? AI Workflow Templates — $19 →</a><br><br>
+    <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; © 2026 Zeltix Craft
+  </footer>
+
+  <script>
+    // ── CONFIGURATION ──────────────────────────────────────────
+    // After creating your Beehiiv form:
+    //   1. Go to Beehiiv → Grow → Forms → your form → Share
+    //   2. Copy the Subscribe URL (looks like:
+    //      https://embeds.beehiiv.com/...  OR
+    //      https://zeltixcraft.beehiiv.com/subscribe)
+    //   3. Paste it below as BEEHIIV_URL
+    // ─────────────────────────────────────────────────────────
+    var BEEHIIV_URL = ''; // <-- paste Beehiiv subscribe URL here
+
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = document.getElementById('email-input').value.trim();
+      if (!email) return;
+
+      if (BEEHIIV_URL) {
+        // Redirect to Beehiiv with email pre-filled
+        window.location.href = BEEHIIV_URL + '?email=' + encodeURIComponent(email);
+      } else {
+        // Fallback: show success state (swap with your backend/Mailchimp/etc.)
+        document.getElementById('signup-form').style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+        // Optional: send to a simple endpoint
+        // fetch('/subscribe', { method: 'POST', body: JSON.stringify({ email }) });
+      }
+    });
+  </script>
+
+</body>
+</html>
